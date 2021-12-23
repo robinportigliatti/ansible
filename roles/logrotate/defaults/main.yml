@@ -1,0 +1,28 @@
+# ansible/roles/logrotate/defaults/main.yml
+---
+  logrotate_owner: "root"
+  logrotate_group: "root"
+  logrotate_files_destination: "/etc/logrotate.d"
+  #logrotate_files:
+  #  - name: "file1"
+  #    regex:
+  #      - "/etc/logrotate.d/vhosts"
+  #      - "/var/www/vhosts/*/log/*.log"
+  #    configuration: |
+  #      weekly
+  #      missingok
+  #      rotate 52
+  #      compress
+  #      delaycompress
+  #      notifempty
+  #      create 660 highco www-data
+  #      su highco www-data
+  #      sharedscripts
+  #      postrotate
+  #              /etc/init.d/apache2 reload > /dev/null
+  #      endscript
+  #      prerotate
+  #              if [ -d /etc/logrotate.d/httpd-prerotate ]; then \
+  #                      run-parts /etc/logrotate.d/httpd-prerotate; \
+  #              fi; \
+  #      endscript

@@ -1,0 +1,15 @@
+# ansible/roles/mysecureshell/tasks/user_directory_manager.yml
+---
+  - name: Configure user directory management (if entries are configured).
+    template:
+      src: "sftp_config.j2"
+      dest: "{{ mysecureshell_ssh_directory }}/sftp_config"
+      owner: "{{ mysecureshell_sys_user }}"
+      group: "{{ mysecureshell_sys_group }}"
+      mode: 0644
+    when: mysecureshell_user_directory is defined
+
+  - name: "reload ssh"
+    service:
+      name: "ssh"
+      state: "reloaded"

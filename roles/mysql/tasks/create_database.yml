@@ -1,0 +1,7 @@
+---
+  - name: "création de la base de données {{ parameter_database_name }}"
+    mysql_db:
+      name: "{{ parameter_database_name }}"
+      login_port: "{{ parameter_login_port }}"
+      state: present
+      

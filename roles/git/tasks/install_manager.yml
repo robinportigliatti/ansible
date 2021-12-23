@@ -1,0 +1,5 @@
+# ansible/roles/git/tasks/install_manager.yml
+---
+  - name: "Install git packages"
+    apt:
+      name: "{{ git_packages }}"

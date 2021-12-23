@@ -1,0 +1,4 @@
+VHOST jeudriveintermarche.devdata.fr sur 163-mutuSF2
+BDD : jeudrivebd
+USER-BDD : jeudrivebdu
+PASS-BDD : e_iOpDk6

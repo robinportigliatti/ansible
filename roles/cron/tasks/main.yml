@@ -1,0 +1,4 @@
+# ansible/roles/cron/tasks/main.yml
+
+- import_tasks: cron_manager.yml
+  when: cron_schedules is defined

@@ -1,0 +1,7 @@
+{{ ansible_managed | comment }}
+{% for regex in logrotate_file_template.regex %}
+{{ regex }}
+{% endfor %}
+{
+{{ logrotate_file_template.configuration }}
+}

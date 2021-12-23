@@ -1,0 +1,13 @@
+---
+  - name: "récupération du contenu du fichier {{ parameter_src_file }}"
+    command: cat {{ parameter_src_file }}
+    register: src_file
+  
+  - name: "copie du fichier {{ parameter_src_file }} vers {{ paramter_dest_file }}"
+    copy:
+      content: "{{ src_file.stdout }}"
+      dest: "{{ paramter_dest_file }}"
+      force: "{{ parameter_force }}"
+      group: "{{ parameter_group }}"
+      owner: "{{ parameter_owner }}"
+      mode: "{{ parameter_mode }}"

@@ -1,0 +1,9 @@
+# ansible/deploy_pki.yml
+---
+- hosts: ansible
+  become: yes
+  tasks:
+    - name: Exécution du rôle pki
+      include_role:
+        name: pki
+        tasks_from: pki_generator

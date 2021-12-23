@@ -1,0 +1,53 @@
+# ansible/roles/debian/tasks/users_manager.yml
+---
+  - name: Add an user
+    user:
+      name: '{{ current_debian_user.name }}'
+      shell: "{{ current_debian_user.shell | default(debian_default_shell) }}"
+      groups: "{{ current_debian_user.groups | default(omit) }}"
+      home: "{{ current_debian_user.home | default(debian_default_home + '/' + current_debian_user.name)  }}"
+      append: yes
+      uid: "{{ current_debian_user.uid | default(omit) }}"
+      password: "{{ current_debian_user.password | default(omit) | password_hash('sha512') }}"
+      update_password: on_create
+    environment:
+      umask: "{{ current_debian_user.umask | default(debian_default_umask) }}"
+    with_items:
+      - "{{ debian_users }}"
+    loop_control:
+      loop_var: current_debian_user
+
+  - name: Change groups
+    user:
+      name: '{{ current_debian_user.name }}'
+      groups: "{{ current_debian_user.name }}"
+      append: yes
+    with_items:
+      - "{{ debian_users }}"
+    loop_control:
+      loop_var: current_debian_user
+
+  - name: Set authorized key took from file
+    authorized_key:
+      user: '{{ current_debian_user.name }}'
+      state: present
+      key: "{{ lookup('file', '{{ current_debian_user.pki_folder }}/{{ current_debian_user.name }}/.ssh/id_rsa.pub') }}"
+    when: current_debian_user.pki_folder is defined and current_debian_user.pki_folder != ""
+    with_items:
+      - "{{ debian_users }}"
+    loop_control:
+      loop_var: current_debian_user
+
+  # Changer nextoadmin en rundeck
+  - name: Add User to AllowUsers
+    replace:
+      backup: yes
+      dest: /etc/ssh/sshd_config
+      regexp: '^(AllowUsers nextoadmin(?!.*\b{{ current_debian_user.name }}\b).*)$'
+      replace: '\1 {{ current_debian_user.name }}'
+    when: current_debian_user.ssh is defined and current_debian_user.ssh == "true"
+    with_items:
+      - "{{ debian_users }}"
+    loop_control:
+      loop_var: current_debian_user
+    notify: "Reload service sshd"

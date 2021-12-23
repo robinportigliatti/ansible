@@ -1,0 +1,22 @@
+# ansible/roles/postgresql/tasks/keys_manager.yml
+---
+  - name: "Check l'existence de la clef"
+    shell: sudo su - postgres -c "gpg --list-keys | grep BCKBDD"
+    register: gpg_key
+    ignore_errors: yes
+
+  - name: "Check la version de GPG"
+    fail: msg="La clef existe déjà"
+    when: gpg_key.stdout != ''
+
+  - name: "Configure key.conf"
+    template:
+      src: "BCKBDD.conf.j2"
+      dest: "/var/lib/postgresql/BCKBDD.conf"
+      mode: "0700"
+      owner: "postgres"
+      group: "postgres"
+
+  - name: "création de la clé BCKBDD.conf"
+    shell: sudo su - postgres -c "gpg --batch --gen-key /var/lib/postgresql/BCKBDD.conf"
+    ignore_errors: yes

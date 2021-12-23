@@ -1,0 +1,9 @@
+# ansible/install_git.yml
+---
+- hosts: "{{ inventory_hostname }}"
+  become: true
+  tasks:
+    - name: "Exécution de l'installation de git"
+      include_role:
+        name: git
+        tasks_from: "install_manager.yml"

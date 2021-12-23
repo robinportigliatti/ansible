@@ -1,0 +1,19 @@
+# roles/postgresql/tasks/jseb_run_script.yml
+---
+- hosts: databases
+  become: yes
+  vars_prompt:
+    - name: "database_name"
+      prompt: "Nom de la base de données à créer"
+      private: no
+  tasks:
+    - name: Transfer the script
+      copy:
+        src: roles/postgres/files/jseb.bash
+        dest: /pgdata/scripts_crontab
+        mode: 0777
+        group: postgres
+        owner: postgres
+        
+    - name: Execute the script
+      shell: "sudo su - postgres -c \"bash /pgdata/scripts_crontab/jseb.bash {{ database_name }}\""

@@ -1,0 +1,31 @@
+{{ ansible_managed | comment }}
+{% if ansible_distribution_release  == "wheezy" %}
+deb http://archive.debian.org/debian/ wheezy contrib main non-free
+deb-src http://archive.debian.org/debian/ wheezy contrib main non-free
+deb http://archive.debian.org/debian wheezy-backports main contrib non-free
+deb-src http://archive.debian.org/debian wheezy-backports main contrib non-free
+{% endif %}
+{% if ansible_distribution_release  == "jessie" %}
+deb http://deb.debian.org/debian jessie  contrib main non-free
+deb-src http://deb.debian.org/debian debian jessie contrib main non-free
+deb http://security.debian.org/ jessie/updates main contrib non-free
+deb-src http://security.debian.org/ jessie/updates main contrib non-free
+deb http://deb.debian.org/debian jessie-backports main contrib non-free
+deb-src http://deb.debian.org/debian jessie-backports main
+{% endif %}
+{% if ansible_distribution_release  == "stretch" %}
+deb http://httpredir.debian.org/debian stretch  contrib main non-free
+deb-src http://httpredir.debian.org/debian stretch contrib main non-free
+deb http://security.debian.org/ stretch/updates main contrib non-free
+deb-src http://security.debian.org/ stretch/updates main contrib non-free
+deb http://deb.debian.org/debian stretch-backports main contrib non-free
+deb-src http://deb.debian.org/debian stretch-backports main
+{% endif %}
+{% if ansible_distribution_release  == "buster" %}
+deb http://httpredir.debian.org/debian buster  contrib main non-free
+deb-src http://httpredir.debian.org/debian buster contrib main non-free
+deb http://security.debian.org/ buster/updates main contrib non-free
+deb-src http://security.debian.org/ buster/updates main contrib non-free
+deb http://deb.debian.org/debian buster-backports main contrib non-free
+deb-src http://deb.debian.org/debian buster-backports main
+{% endif %}

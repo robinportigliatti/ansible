@@ -1,0 +1,4 @@
+VHOST monjouetidealfisherprice-mdup.hcdata.fr sur 163-mutuSF2
+BDD : fisher_mdupbd
+USER-BDD : fisher_mdupbdu
+PASS-BDD : kgj_N5tO

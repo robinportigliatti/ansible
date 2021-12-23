@@ -1,0 +1,40 @@
+{{ ansible_managed | comment }}
+Unattended-Upgrade::Origins-Pattern {
+//      "o=Debian,n=jessie";
+//      "o=Debian,n=jessie-updates";
+//      "o=Debian,n=jessie-proposed-updates";
+//      "o=Debian,n=jessie,l=Debian-Security";
+//      "o=Debian,a=stable";
+//      "o=Debian,a=stable-updates";
+//      "o=Debian,a=proposed-updates";
+        "origin=Debian,codename=${distro_codename},label=Debian-Security";
+};
+
+Unattended-Upgrade::Package-Blacklist {
+//      "php*";
+//      "libc6";
+//      "libc6-dev";
+//      "libc6-i686";
+};
+
+//Unattended-Upgrade::AutoFixInterruptedDpkg "false";
+
+//Unattended-Upgrade::MinimalSteps "true";
+
+//Unattended-Upgrade::InstallOnShutdown "true";
+
+Unattended-Upgrade::MailOnlyOnError "true";
+
+Unattended-Upgrade::Mail "hcd_si-hebergement@highco-data.fr";
+
+Unattended-Upgrade::Remove-Unused-Dependencies "false";
+
+Unattended-Upgrade::Automatic-Reboot "false";
+
+//Unattended-Upgrade::Automatic-Reboot-Time "02:00";
+
+//Acquire::http::Dl-Limit "70";
+
+// Unattended-Upgrade::SyslogEnable "false";
+
+// Unattended-Upgrade::SyslogFacility "daemon";

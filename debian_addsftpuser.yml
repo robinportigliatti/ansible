@@ -1,0 +1,10 @@
+# ansible/deploy_virtual_machines_wrapper.yml
+---
+- name: "Ajout des utilisateurs"
+  import_playbook: deploy_debian_users.yml
+
+- name: "Configuration des répertoires debian"
+  import_playbook: deploy_debian_directories.yml
+
+- name: "Configuration du mysecureshell"
+  import_playbook: deploy_mysecureshell.yml

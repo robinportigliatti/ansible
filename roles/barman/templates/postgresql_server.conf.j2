@@ -1,0 +1,9 @@
+[{{ item.name }}]
+description =  "{{ item.description }}"
+conninfo = host={{ item.host_name }} user={{ barman_user_name }} dbname=postgres
+streaming_conninfo = host={{ item.host_name }} user={{ streaming_barman_user_name }}
+backup_method = postgres
+streaming_archiver = on
+slot_name = {{ barman_slot_name }}
+retention_policy = RECOVERY WINDOW OF 1 DAYS
+wal_retention_policy = main

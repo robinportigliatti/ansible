@@ -1,0 +1,4 @@
+VHOST monjouetidealfisherprice-cjac.hcdata.fr sur 163-mutuSF2
+BDD : fisher_cjacbd
+USER-BDD : fisher_cjacbdu
+PASS-BDD : GljgfA6Y

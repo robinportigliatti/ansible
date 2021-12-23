@@ -1,0 +1,4 @@
+VHOST jeuharmony-tigex.joueravec.com sur 163-mutuSF2
+BDD : jeuharmonybd
+USER-BDD : jeuharmonybdu
+PASS-BDD : _tIxrREC

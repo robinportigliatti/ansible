@@ -1,0 +1,4 @@
+# ansible/roles/gpg/tasks/main.yml
+---
+  - import_tasks: prerequisities.yml
+  - import_tasks: keys_manager.yml

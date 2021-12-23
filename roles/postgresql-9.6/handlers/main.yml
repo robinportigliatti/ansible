@@ -1,0 +1,17 @@
+# ansible/roles/postgresql/handlers/main.yml
+---
+
+  - name: "start postgresql"
+    service:
+      name: "postgresql"
+      state: "started"
+
+  - name: "reload postgresql"
+    service:
+      name: "postgresql"
+      state: "reloaded"
+
+  - name: "restart postgresql"
+    service:
+      name: "postgresql"
+      state: "restarted"

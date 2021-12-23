@@ -1,0 +1,12 @@
+---
+  - name: "création du slot {{ barman_slot_name }} sur le serveur postgres"
+    shell: sudo su {{ barman_user_name }} -c "/usr/bin/barman receive-wal --create-slot {{ item.name }}"
+    ignore_errors: yes    
+    with_items: "{{ barman_server_configuration }}"
+    tags: barman-configure
+
+  - name: "Vérification de la configuration barman {{ barman_slot_name }} sur le serveur item.name"
+    shell: sudo su {{ barman_user_name }} -c "/usr/bin/barman check {{ item.name }}"
+    ignore_errors: yes    
+    with_items: "{{ barman_server_configuration }}"
+    tags: barman-configure

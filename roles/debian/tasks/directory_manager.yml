@@ -1,0 +1,14 @@
+# ansible/roles/debian/tasks/directory_manager.yml
+---
+  - name: "Creating directories"
+    file:
+      state: directory
+      path: "{{ current_debian_directory.path }}"
+      owner: "{{ current_debian_directory.owner }}"
+      group: "{{ current_debian_directory.group }}"
+      mode: "{{ current_debian_directory.mode }}"
+    with_items:
+      - "{{ debian_directories }}"
+    loop_control:
+      loop_var: current_debian_directory
+    when: debian_directories is defined

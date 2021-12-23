@@ -1,0 +1,223 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+[ADMIN]
+nagioshcd.linkingup.org ansible_host=nagioshcd.linkingup.org
+redmine-hcd.linkingup.org       ansible_host=redmine-hcd.linkingup.org
+s1lxnagios01.devdata.fr ansible_host=nagios.devdata.fr
+s5lxadm01.devdata.fr    ansible_host=s5lxadm01.devdata.fr
+s5lxarchbdd01.devdata.fr        ansible_host=s5lxarchbdd01.devdata.fr
+s5lxdbadm01.devdata.fr  ansible_host=s5lxdbadm01.devdata.fr
+s5lxdbadm02.devdata.fr  ansible_host=s5lxdbadm02.devdata.fr
+s5lxdocker01    ansible_host=192.168.57.213
+s5lxdocker02    ansible_host=192.168.57.218
+s5lxgitlab01.devdata.fr ansible_host=s5lxgitlab01.devdata.fr
+s5lxgraylog01.devdata.fr        ansible_host=graylog2-adm.devdata.fr
+s5lxgraylog-bdd01.devdata.fr    ansible_host=s5lxgraylog-bdd01.devdata.fr
+s5lxgraylog-secu01.devdata.fr   ansible_host=s5lxgraylog-secu01.devdata.fr
+s5lxrancher01.devdata.fr        ansible_host=s5lxrancher01.devdata.fr
+SRV-SC02.scan002.linkingup.org  ansible_host=SRV-SC02.scan002.linkingup.org
+TEST-PostgreSQL.devdata.fr      ansible_host=TEST-PostgreSQL.devdata.fr
+
+[DEV]
+s1lxnaiabdd01 ansible_host=s1lxnaiabdd01.devdata.fr
+bri-bdd.dev     ansible_host=192.168.57.226
+briweb-dev      ansible_host=192.168.57.101
+git.devdata.fr  ansible_host=git.devdata.fr
+hcdtools        ansible_host=192.168.57.79
+s1lxaws01.devdata.fr    ansible_host=s1lxaws01.devdata.fr
+s1lxblackfire01.devdata.fr      ansible_host=s1lxblackfire01.devdata.fr
+s1lxbuild01.devdata.fr  ansible_host=s1lxbuild01.devdata.fr
+s1lxbuild02.devdata.fr  ansible_host=s1lxbuild02.devdata.fr
+s1lxdigital01.devdata.fr        ansible_host=s1lxdigital01.devdata.fr
+s1lxdocker01.devdata.fr ansible_host=s1lxdocker01.devdata.fr
+s1lxelasticsearch01.devdata.fr  ansible_host=s1lxelasticsearch01.devdata.fr
+s1lxhighconf01.devdata.fr       ansible_host=highconf.devdata.fr
+s1lxPostGresql01.devdata.fr     ansible_host=s1lxPostGresql01.devdata.fr
+s1lxpromo01.devdata.fr  ansible_host=s1lxpromo01.devdata.fr
+s2lxpaypal01.devdata.fr ansible_host=s2lxpaypal01.devdata.fr
+s2lxws01.devdata.fr     ansible_host=s2lxws01.devdata.fr
+s3lxgraylog01.devdata.fr        ansible_host=graylog2.devdata.fr
+
+[DEV-JENKINS]
+s1lxjenkinsM01.devdata.fr       ansible_host=s1lxjenkinsM01.devdata.fr
+s1lxjenkinsS01.devdata.fr       ansible_host=s1lxjenkinsS01.devdata.fr
+s1lxjenkinsS02.devdata.fr       ansible_host=s1lxjenkinsS02.devdata.fr
+s1lxjenkinsS03.devdata.fr       ansible_host=s1lxjenkinsS03.devdata.fr
+s1lxjenkinsS04.devdata.fr       ansible_host=s1lxjenkinsS04.devdata.fr
+s1lxjenkinsS05.devdata.fr       ansible_host=s1lxjenkinsS05.devdata.fr
+
+[TEMPLATE]
+s0lxjessie01.devdata.fr ansible_host=s0lxjessie01.devdata.fr
+
+[EODR-REC]
+eodrv2-lbr01.devdata.fr ansible_host=eodrv2-lbr01.devdata.fr
+eodrv2-rec01.devdata.fr ansible_host=eodrv2-rec01.devdata.fr
+eodrv2-rec02.devdata.fr ansible_host=eodrv2-rec02.devdata.fr
+
+[HCD-REC-APP]
+hcd-appr01.devdata.fr   ansible_host=hcd-appr01.devdata.fr
+
+[HCD-REC-BDD]
+hcd-bddr03.devdata.fr   ansible_host=hcd-bddr03.devdata.fr
+hcd-bddr02.devdata.fr   ansible_host=hcd-bddr02.devdata.fr
+
+[HCD-REC-WEB]
+hcd-rec01.devdata.fr    ansible_host=hcd-rec01.devdata.fr
+hcd-rec02.devdata.fr    ansible_host=hcd-rec02.devdata.fr
+hcd-rec03.devdata.fr    ansible_host=hcd-rec03.devdata.fr
+hcd-rec04.devdata.fr    ansible_host=hcd-rec04.devdata.fr
+
+[LAC-REC]
+lac-bddr01.devdata.fr   ansible_host=lac-bddr01.devdata.fr
+lac-bddr02.devdata.fr   ansible_host=lac-bddr02.devdata.fr
+lac-rec01.devdata.fr    ansible_host=lac-rec01.devdata.fr
+lac-rec02.devdata.fr    ansible_host=lac-rec02.devdata.fr
+
+[ORA-REC]
+ora-rec01.devdata.fr    ansible_host=192.168.19.5
+ora-rec02.devdata.fr    ansible_host=192.168.15.164
+ora-rec03.devdata.fr    ansible_host=ora-rec03.devdata.fr
+ora-rec04.devdata.fr    ansible_host=ora-rec04.devdata.fr
+ora-rec05.devdata.fr    ansible_host=ora-rec05.devdata.fr
+ora-rec06.devdata.fr    ansible_host=ora-rec06.devdata.fr
+ora-lbr01.devdata.fr    ansible_host=192.168.15.157
+ora-bddr02.devdata.fr   ansible_host=192.168.19.4
+
+[PROD]
+s3lxappdemat01.devdata.fr       ansible_host=s3lxappdemat01.devdata.fr
+s3lxgertrud01.devdata.fr        ansible_host=s3lxgertrud01.devdata.fr
+s3lxgitext01.devdata.fr ansible_host=192.168.16.70
+s3lxpaypalengine01.devdata.fr   ansible_host=s3lxpaypalengine01.devdata.fr
+s3lxpaypalpf01.devdata.fr       ansible_host=s3lxpaypalpf01.devdata.fr
+s3lxsftp01.devdata.fr   ansible_host=s3lxsftp01.devdata.fr
+s3lxws01.devdata.fr     ansible_host=s3lxws01.devdata.fr
+
+[TDF-NAIA-UAT-HAPROXY]
+suatlxhaprox02 ansible_host=suatlxhaprox02.devdata.fr
+suatlxhaprox01 ansible_host=suatlxhaprox01.devdata.fr
+
+[TDF-NAIA-UAT-WEB]
+suatlxweb03 ansible_host=suatlxweb03.devdata.fr
+suatlxweb02 ansible_host=suatlxweb02.devdata.fr
+suatlxweb01 ansible_host=suatlxweb01.devdata.fr
+
+[TDF-NAIA-UAT-APP]
+suatlxrabbitmq01 ansible_host=suatlxrabbitmq01.devdata.fr
+suatlxredismaster02 ansible_host=suatlxredismaster02.devdata.fr
+suatlxredismaster01 ansible_host=suatlxredismaster01.devdata.fr
+suatlxredismaster03 ansible_host=suatlxredismaster03.devdata.fr
+suatlxapp02 ansible_host=suatlxapp02.devdata.fr
+suatlxapp01 ansible_host=suatlxapp01.devdata.fr
+
+[TDF-NAIA-UAT-BDD]
+suatlxpostgresslave01 ansible_host=suatlxpostgresslave01.devdata.fr
+suatlxpostgresmaster02 ansible_host=suatlxpostgresmaster02.devdata.fr
+suatlxpostgresmaster01 ansible_host=suatlxpostgresmaster01.devdata.fr
+suatlxpgbouncer02 ansible_host=suatlxpgbouncer02.devdata.fr
+suatlxpgbouncer01 ansible_host=suatlxpgbouncer01.devdata.fr
+
+[TDF-NAIA-SIT-HAPROXY]
+ssitlxhaprox02 ansible_host=ssitlxhaprox02.devdata.fr
+ssitlxhaprox01 ansible_host=ssitlxhaprox01.devdata.fr
+
+[TDF-NAIA-SIT-WEB]
+ssitlxweb03 ansible_host=ssitlxweb03.devdata.fr
+ssitlxweb02 ansible_host=ssitlxweb02.devdata.fr
+ssitlxweb01 ansible_host=ssitlxweb01.devdata.fr
+
+[TDF-NAIA-SIT-APP]
+ssitlxrundeck01 ansible_host=ssitlxrundeck01.devdata.fr
+ssitlxnfs01 ansible_host=ssitlxnfs01.devdata.fr
+ssitlxrabbitmq01 ansible_host=ssitlxrabbitmq01.devdata.fr
+ssitlxredismaster02 ansible_host=ssitlxredismaster02.devdata.fr
+ssitlxredismaster01 ansible_host=ssitlxredismaster01.devdata.fr
+ssitlxredismaster03 ansible_host=ssitlxredismaster03.devdata.fr
+ssitlxapp02 ansible_host=ssitlxapp02.devdata.fr
+ssitlxapp01 ansible_host=ssitlxapp01.devdata.fr
+
+[TDF-NAIA-SIT-BDD]
+ssitlxpostgresslave01 ansible_host=ssitlxpostgresslave01.devdata.fr
+ssitlxpostgresmaster02 ansible_host=ssitlxpostgresmaster02.devdata.fr
+ssitlxpostgresmaster01 ansible_host=ssitlxpostgresmaster01.devdata.fr
+ssitlxpgbouncer02 ansible_host=ssitlxpgbouncer02.devdata.fr
+ssitlxpgbouncer01 ansible_host=ssitlxpgbouncer01.devdata.fr
+
+[TDF-NAIA-HOM-HAPROXY]
+shomlxhaprox02 ansible_host=shomlxhaprox02.devdata.fr
+shomlxhaprox01 ansible_host=shomlxhaprox01.devdata.fr
+
+[TDF-NAIA-HOM-WEB]
+shomlxweb03 ansible_host=shomlxweb03.devdata.fr
+shomlxweb02 ansible_host=shomlxweb02.devdata.fr
+shomlxweb01 ansible_host=shomlxweb01.devdata.fr
+
+[TDF-NAIA-HOM-APP]
+shomlxrabbitmq01 ansible_host=shomlxrabbitmq01.devdata.fr
+shomlxredismaster02 ansible_host=shomlxredismaster02.devdata.fr
+shomlxredismaster01 ansible_host=shomlxredismaster01.devdata.fr
+shomlxapp02 ansible_host=shomlxapp02.devdata.fr
+shomlxapp01 ansible_host=shomlxapp01.devdata.fr
+
+[TDF-NAIA-HOM-BDD]
+shomlxpostgresslave01 ansible_host=shomlxpostgresslave01.devdata.fr
+shomlxpostgresmaster02 ansible_host=shomlxpostgresmaster02.devdata.fr
+shomlxpostgresmaster01 ansible_host=shomlxpostgresmaster01.devdata.fr
+shomlxpgbouncer02 ansible_host=shomlxpgbouncer02.devdata.fr
+shomlxpgbouncer01 ansible_host=shomlxpgbouncer01.devdata.fr
+
+[FIDUCIAL-NAIA-PROD-HAPROXY]
+sprodlxhaprox02 ansible_host=sprodlxhaprox02.devdata.fr
+sprodlxhaprox01 ansible_host=sprodlxhaprox01.devdata.fr
+
+[FIDUCIAL-NAIA-PROD-WEB]
+sprodlxweb03 ansible_host=sprodlxweb03.devdata.fr
+sprodlxweb02 ansible_host=sprodlxweb02.devdata.fr
+sprodlxweb01 ansible_host=sprodlxweb01.devdata.fr
+
+[FIDUCIAL-NAIA-PROD-APP]
+sprodlxrundeck01 ansible_host=sprodlxrundeck01.devdata.fr
+sprodlxnfs01 ansible_host=sprodlxnfs01.devdata.fr
+sprodlxrabbitmq01 ansible_host=sprodlxrabbitmq01.devdata.fr
+sprodlxredismaster02 ansible_host=sprodlxredismaster02.devdata.fr
+sprodlxredismaster01 ansible_host=sprodlxredismaster01.devdata.fr
+sprodlxapp02 ansible_host=sprodlxapp02.devdata.fr
+sprodlxapp01 ansible_host=sprodlxapp01.devdata.fr
+
+[FIDUCIAL-NAIA-PROD-BDD]
+sprodlxpostgresslave01 ansible_host=sprodlxpostgresslave01.devdata.fr
+sprodlxpostgresmaster02 ansible_host=sprodlxpostgresmaster02.devdata.fr
+sprodlxpostgresmaster01 ansible_host=sprodlxpostgresmaster01.devdata.fr
+sprodlxpgbouncer02 ansible_host=sprodlxpgbouncer02.devdata.fr
+sprodlxpgbouncer01 ansible_host=sprodlxpgbouncer01.devdata.fr
+
+[FIDUCIAL-NAIA-PPROD-HAPROXY]
+spprodlxhaprox02 ansible_host=spprodlxhaprox02.devdata.fr
+spprodlxhaprox01 ansible_host=spprodlxhaprox01.devdata.fr
+
+[FIDUCIAL-NAIA-PPROD-WEB]
+spprodlxweb03 ansible_host=spprodlxweb03.devdata.fr
+spprodlxweb02 ansible_host=spprodlxweb02.devdata.fr
+spprodlxweb01 ansible_host=spprodlxweb01.devdata.fr
+
+[FIDUCIAL-NAIA-PPROD-APP]
+spprodlxrundeck01 ansible_host=spprodlxrundeck01.devdata.fr
+spprodlxnfs01 ansible_host=spprodlxnfs01.devdata.fr
+spprodlxrabbitmq01 ansible_host=spprodlxrabbitmq01.devdata.fr
+spprodlxredismaster02 ansible_host=spprodlxredismaster02.devdata.fr
+spprodlxredismaster01 ansible_host=spprodlxredismaster01.devdata.fr
+spprodlxapp02 ansible_host=spprodlxapp02.devdata.fr
+spprodlxapp01 ansible_host=spprodlxapp01.devdata.fr
+
+[FIDUCIAL-NAIA-PPROD-BDD]
+spprodlxpostgresslave01 ansible_host=spprodlxpostgresslave01.devdata.fr
+spprodlxpostgresmaster02 ansible_host=spprodlxpostgresmaster02.devdata.fr
+spprodlxpostgresmaster01 ansible_host=spprodlxpostgresmaster01.devdata.fr
+spprodlxpgbouncer02 ansible_host=spprodlxpgbouncer02.devdata.fr
+spprodlxpgbouncer01 ansible_host=spprodlxpgbouncer01.devdata.fr

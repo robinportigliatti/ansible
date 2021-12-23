@@ -1,0 +1,4 @@
+VHOST plateforme-webcoupon-coca.devdata.fr sur 163-mutuSF2
+BDD : webcocabd
+USER-BDD : webcocabdu
+PASS-BDD : XykBB76P

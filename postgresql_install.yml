@@ -1,0 +1,9 @@
+# ansible/postgres_instal.yml
+---
+- hosts: "database"
+  become: yes
+  tasks:
+    - name: "Installation de postgresql"
+      include_role:
+        name: postgresql-{{ pg_version }}
+        tasks_from: install_manager.yml

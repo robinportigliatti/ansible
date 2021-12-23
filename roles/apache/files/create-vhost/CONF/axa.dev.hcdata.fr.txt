@@ -1,0 +1,4 @@
+VHOST axa.dev.hcdata.fr sur 163-mutuSF2
+BDD : axabd
+USER-BDD : axabdu
+PASS-BDD : ZFKjXDPn

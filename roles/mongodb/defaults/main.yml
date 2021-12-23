@@ -1,0 +1,9 @@
+# ansible/roles/mongodb/tasks/install_manager.yml
+---
+  mongodb_repository_signing_key_url: "hkp://keyserver.ubuntu.com:80"
+  mongodb_repository_signing_key: "9DA31620334BD75D9DCB49F368818C72E52529D4"
+  mongodb_repository_list_name: "/etc/apt/sources.list.d/mongodb-org-4.0"
+  mongodb_version: "4.0"
+  mongodb_debian_repository: "deb http://repo.mongodb.org/apt/debian {{ ansible_distribution_release }}/mongodb-org/{{ mongodb_version }} main"
+  mongodb_packages: "mongodb-org"
+  mongodb_conf_file: "/etc/mongod.conf"

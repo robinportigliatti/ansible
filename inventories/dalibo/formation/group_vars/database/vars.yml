@@ -1,0 +1,11 @@
+postgresql_default_extensions:
+  - name: "dblink"
+    state: "present"
+  - name: "pgstattuple"
+    state: "present"
+  - name: "plpgsql"
+    state: "present"
+  - name: "unaccent"
+    state: "present"
+  - name: "pg_trgm"
+    state: "present"

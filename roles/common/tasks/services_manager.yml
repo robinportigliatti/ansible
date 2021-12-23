@@ -1,0 +1,5 @@
+---
+  - name: "managing service {{ parameter_service }} with state {{ parameter_state }}"
+    service:
+      name: "{{ parameter_service }}"
+      state: "{{ parameter_state }}"

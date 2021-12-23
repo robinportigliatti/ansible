@@ -1,0 +1,13 @@
+# ansible/roles/cron/defaults/main.yml
+#cron_schedules:
+#  - user: "postgres"
+#    name: "Sauvegarde postgres"
+#    cron_file: "postgres"
+#    job: ". $HOME/.bash_profile >/dev/null 2>&1; bash $cron/pg_is_nominal.bash && bash $cron/dba_pg_save_postmaster.bash -c BCKLACTALIS -A 10.100.1.110 -U nextobck01 -D postgres/som-bdd02/ 1>$cron/logs/pg_save_postmaster.log 2>&1"
+#    state: "present"
+#    disabled: "false"
+#    minute: "0"
+#    hour: "22"
+#    day: "*"
+#    month: "*"
+#    weekday: "*"

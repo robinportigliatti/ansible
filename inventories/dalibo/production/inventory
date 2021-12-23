@@ -1,0 +1,3 @@
+[personal_computer]
+localhost ansible_connection=local
+mathieu_computer ansible_connection=local

@@ -1,0 +1,7 @@
+---
+  - name: install postgresql prerequisites
+    apt:
+      name: "{{ packages }}"
+      state: "{{ parameter_state }}"
+    vars:
+      packages: "{{ parameter_packages }}"

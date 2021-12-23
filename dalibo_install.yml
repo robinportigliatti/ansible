@@ -1,0 +1,13 @@
+---
+- hosts: "{{ inventory_hostname }}"
+
+  vars_prompt:
+    - name: "username"
+      prompt: "Quel est le nom de l'utilisateur à configurer?"
+      private: no
+      confirm: yes
+
+  tasks:
+    - name: "Import le role d'installation"
+      import_role:
+        name: "dalibo"

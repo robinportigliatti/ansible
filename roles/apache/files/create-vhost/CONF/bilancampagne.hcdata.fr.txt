@@ -1,0 +1,4 @@
+VHOST bilancampagne.hcdata.fr sur 163-mutuSF2
+BDD : bilanbd
+USER-BDD : bilanbdu
+PASS-BDD : 6xXNVv2O

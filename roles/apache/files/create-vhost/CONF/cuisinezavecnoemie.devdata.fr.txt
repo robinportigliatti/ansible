@@ -1,0 +1,4 @@
+VHOST cuisinezavecnoemie.devdata.fr sur 163-mutuSF2
+BDD : cuisineznoemiebd
+USER-BDD : cuisineznoemiebdu
+PASS-BDD : gDFiK18O

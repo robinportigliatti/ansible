@@ -1,0 +1,14 @@
+# ansible/environments/carrefour/recette/host_vars/bas1.priv.dalibo.net/vars.yml
+---
+postgresql_default_database_owner: "postgres"
+postgresql_default_port_number: "5433"
+postgresql_system_database: "postgres"
+postgresql_home_directory: "/var/lib/postgresql"
+postgresql_version: "9.4"
+postgresql_databases: []
+
+postgresql_roles: []
+
+postgresql_hba_entries: []
+
+pgbouncer_database_entries: []

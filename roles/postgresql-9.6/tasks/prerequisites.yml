@@ -1,0 +1,10 @@
+# ansible/roles/postgresql/tasks/prerequisites.yml
+---
+  - name: Ensure a locale exists
+    locale_gen:
+      name: "{{ postgresql_locale }}"
+      state: present
+  - name: "Managing postgresql prerequisites"
+    apt:
+      name: [libpq-dev, python-psycopg2, gpg]
+      state: "latest"

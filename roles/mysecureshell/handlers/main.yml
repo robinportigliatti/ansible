@@ -1,0 +1,6 @@
+# ansible/roles/mysecureshell/handlers/main.yml
+---
+  - name: "Reload service ssh"
+    service:
+      name: "ssh"
+      state: "reloaded"

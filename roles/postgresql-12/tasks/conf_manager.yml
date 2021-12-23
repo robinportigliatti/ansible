@@ -1,0 +1,17 @@
+# ansible/roles/postgresql/tasks/conf_manager.yml
+---
+  - name: Configure global settings.
+    lineinfile:
+      dest: "{{ postgresql_pgdata_main_directory }}/postgresql.conf"
+      regexp: "^#?{{ current_postgresql_global_config_option.option }}.+$"
+      line: "{{ current_postgresql_global_config_option.option }} = {{ current_postgresql_global_config_option.value }}"
+      state: "{{ current_postgresql_global_config_option.state | default('present') }}"
+    with_items:
+      - "{{ postgresql_global_config_options }}"
+    loop_control:
+      loop_var: current_postgresql_global_config_option
+
+  - name: "restart postgresql"
+    service:
+      name: "postgresql"
+      state: "restarted"

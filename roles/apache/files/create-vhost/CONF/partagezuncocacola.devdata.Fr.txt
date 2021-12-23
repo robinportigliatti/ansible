@@ -1,0 +1,4 @@
+VHOST partagezuncocacola.devdata.Fr sur 163-mutuSF2
+BDD : cocabd
+USER-BDD : cocabdu
+PASS-BDD : 0VqqnStz

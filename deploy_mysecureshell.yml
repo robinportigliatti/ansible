@@ -1,0 +1,8 @@
+# ansible/deploy_mysecureshell.yml
+---
+- hosts: "{{ inventory_hostname }}"
+  become: yes
+  tasks:
+    - name: "Gestion de mysecureshell"
+      include_role:
+        name: mysecureshell

@@ -1,0 +1,24 @@
+# {{ ansible_managed }}
+
+{% for ssh_config in dalibo_ssh_configs %}
+Host {{ ssh_config.host }}
+{% if ssh_config.hostname is defined %}
+  Hostname {{ ssh_config.hostname }}
+{% endif %}
+{% if ssh_config.gssapiauthentication is defined %}
+  GSSAPIAuthentication {{ ssh_config.gssapiauthentication }}
+{% endif %}
+{% if ssh_config.serveraliveinterval is defined %}
+  ServerAliveInterval {{ ssh_config.serveraliveinterval }}
+{% endif %}
+{% if ssh_config.identityfile is defined %}
+  IdentityFile {{ ssh_config.identityfile }}
+{% endif %}
+{% if ssh_config.proxyjump is defined %}
+  ProxyJump {{ ssh_config.proxyjump }}
+{% endif %}
+{% if ssh_config.user is defined %}
+  User {{ ssh_config.user }}
+{% endif %}
+
+{% endfor %}

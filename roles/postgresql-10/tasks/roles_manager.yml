@@ -1,0 +1,15 @@
+# ansible/roles/postgresql/tasks/roles_manager.yml
+---
+- name: "Postgresql: Managing roles"
+  postgresql_user:
+    db: "{{ postgresql_system_database }}"
+    name: "{{ item.name }}"
+    password: "{{ item.password | default(omit) }}"
+    role_attr_flags: "{{ item.role_attr_flags }}"
+    port: "{{ item.port | default(postgresql_port_number)}} "
+    state: "{{ item.state }}"
+    login_user: "{{ postgresql_default_owner }}"
+    login_password: "{{ vault_postgresql_password }}"
+  with_items:
+    - "{{ postgresql_roles }}"
+  when: postgresql_roles is defined

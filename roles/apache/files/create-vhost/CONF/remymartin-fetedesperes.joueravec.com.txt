@@ -1,0 +1,4 @@
+VHOST remymartin-fetedesperes.joueravec.com sur 163-mutuSF2
+BDD : remymartin2bd
+USER-BDD : remymartin2bdu
+PASS-BDD : KdxKga

@@ -1,0 +1,9 @@
+# ansible/deploy_postgresql_hba.yml
+---
+- hosts: database
+  become: yes
+  tasks:
+    - name: Exécution du rôle postgresql
+      include_role:
+        name: postgresql
+        tasks_from: hba_manager.yml

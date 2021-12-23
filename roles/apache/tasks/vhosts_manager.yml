@@ -1,0 +1,46 @@
+# ansible/roles/apache/tasks/vhosts_manager.yml
+---
+  - import_tasks: apache_scripts_manager.yml
+  
+  - name: Create Apache vhosts
+    shell: |
+      chmod +x /opt/create-vhost/*.sh
+      /opt/create-vhost/index.sh {{ item.name }} > /tmp/create-vhost.log
+    with_items:
+      - "{{ apache_vhosts }}"
+      
+  - name: Clean files
+    shell: rm -rf /opt/create-vhost
+  
+  - name: Create Logrotate Configuration
+    shell: cp -Ra /etc/logrotate.d/apache2 /etc/logrotate.d/apache2-{{ item.name }}
+    with_items:
+      - "{{ apache_vhosts }}"
+      
+  - name: Customize Logrotate Configuration
+    replace:
+      path: /etc/logrotate.d/apache2-{{ item.name }}
+      regexp: '/var/log/apache2/'
+      replace: /var/www/vhosts/{{ item.name }}/log/
+    with_items:
+      - "{{ apache_vhosts }}"
+  
+  - name: Customize hosts
+    lineinfile:
+      path: /etc/hosts
+      insertbefore: EOF
+      regexp: '{{ item.name }}'
+      line: "127.0.0.1 {{ item.name }}"
+      
+      state: present
+    with_items:
+      - "{{ apache_vhosts }}"
+  
+  - name: Customize Logrotate Rights
+    replace:
+      path: /etc/logrotate.d/apache2-{{item.name}}
+      regexp: 'create 640 root adm'
+      replace: 'create 640 root www-data'
+    with_items:
+      - "{{ debian_vhosts }}"
+  

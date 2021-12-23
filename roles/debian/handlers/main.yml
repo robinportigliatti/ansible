@@ -1,0 +1,6 @@
+# ansible/roles/debian/handlers/main.yml
+---
+  - name: "Reload service sshd"
+    service:
+      name: "sshd"
+      state: "reloaded"

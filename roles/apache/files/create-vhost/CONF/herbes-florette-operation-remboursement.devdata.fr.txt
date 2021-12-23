@@ -1,0 +1,4 @@
+VHOST herbes-florette-operation-remboursement.devdata.fr sur 163-mutuSF2
+BDD : floretteORbd
+USER-BDD : floretteORbdu
+PASS-BDD : 4sUDfybF

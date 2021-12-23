@@ -1,0 +1,18 @@
+# ansible/roles/pki/tasks/pki_generator.yml
+---
+  - name: "Create user's PKI folder"
+    file:
+      path: "{{ item.folder }}"
+      state: directory
+    with_items:
+      - "{{ pki_users }}"
+    when: pki_users is defined
+  
+  - name: Exécution du rôle SSH à partir du rôle de PKI
+    include_role:
+      name: ssh
+      tasks_from: key_generator
+    vars:
+      ssh_users: "{{ pki_users }}"
+    when: pki_users is defined
+

@@ -1,0 +1,6 @@
+VHOST schollnoel.devdata.fr sur 163-mutuSF2
+BDD : schollnobd
+USER-BDD : schollnobdu
+PASS-BDD : BWF1_26L
+-----------------
+Authentification Htacess : highco / blrcm 

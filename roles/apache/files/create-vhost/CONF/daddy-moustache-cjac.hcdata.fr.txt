@@ -1,0 +1,4 @@
+VHOST daddy-moustache-cjac.hcdata.fr sur 163-mutuSF2
+BDD : daddy_cjacbd
+USER-BDD : daddy_cjacbdu
+PASS-BDD : YHEHqTQ0

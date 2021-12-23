@@ -1,0 +1,19 @@
+# ansible/roles/apache/defaults/main.yml
+---
+  apache_vhosts: []
+    #- name: vhost1.devdata.fr
+    #- name: vhost2.devdata.fr
+  opcache_folders:
+    - path: "/usr/lib/nagios/www"
+      owner: "www-data"
+      group: "www-data"
+      state: "directory"
+      mode: "0750"
+    - path: "/usr/lib/nagios/www/log"
+      owner: "www-data"
+      group: "www-data"
+      state: "directory"
+      mode: "0750"
+  
+  opcache_vhosts: []
+    #- name: opcache.localhost

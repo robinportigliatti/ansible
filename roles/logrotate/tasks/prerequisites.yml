@@ -1,0 +1,6 @@
+# ansible/roles/logrotate/tasks/prerequisites.yml
+---
+  - name: "Managing logrotate prerequisites"
+    apt:
+      name: "logrotate"
+      state: "latest"

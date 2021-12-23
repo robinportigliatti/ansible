@@ -1,0 +1,4 @@
+VHOST larecettedusuccess-elec.hcdata.fr sur 163-mutuSF2
+BDD : success_elecbd
+USER-BDD : success_elecbdu
+PASS-BDD : VE79_sGZ

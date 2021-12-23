@@ -1,0 +1,60 @@
+# ansible/roles/haproxy/tasks/install_manager.yml
+---
+  - name: install haproxy
+    package:
+      name: "haproxy"
+      state: "present"
+      
+  - name: Copying Haproxy configuration
+    copy:
+      src: haproxy.cfg
+      dest: /etc/haproxy/haproxy.cfg
+      owner: root
+      group: root
+      mode: "0755"
+      
+  - name: Haproxy Customize Hostname
+    replace:
+      path: /etc/haproxy/haproxy.cfg
+      regexp: 'HOST_NAME'
+      replace: "{{ ansible_hostname }}"
+      
+  - name: Haproxy Customize IP Prefix
+    replace:
+      path: /etc/haproxy/haproxy.cfg
+      regexp: 'PREFIX_IP'
+      replace: "{{ prefix_ip }}"
+      
+  - name: "Create filter file"
+    file:
+      path: "/etc/haproxy/web-ref"
+      state: "touch"
+      owner: "root"
+      group: "root"
+      mode: "0755"
+      
+  - name: "PTF REF Identication"
+    lineinfile:
+      path: "/etc/haproxy/web-ref"
+      insertbefore: "EOF"
+      regexp: '^ptf-ref'
+      line: "ptf-ref-{{env}}.highco-data.fr"
+      state: "present"
+  
+  - name: "HCD IP Whitelist"
+    lineinfile:
+      path: "/etc/haproxy/trustedIP"
+      insertbefore: "EOF"
+      regexp: '^195.200.186.5'
+      line: "195.200.186.5"
+      state: "present"
+
+  - name: Copy HCD certificate
+    copy:
+      src: "/etc/pki/hcd"
+      dest: "/etc/ssl/"
+      owner: "root"
+      group: "root"
+      mode: "0755"
+    notify: "haproxy_restarted"
+

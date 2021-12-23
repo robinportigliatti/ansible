@@ -1,0 +1,29 @@
+# ansible/roles/cron/tasks/cron_manager.yml
+- name: "Gestion des crons"
+  cron:
+    user: "{{ cron_schedule.user }}"
+    name: "{{ cron_schedule.name }}"
+    cron_file: "{{ cron_schedule.cron_file }}"
+    job: "{{ cron_schedule.job }}"
+    state: "{{ cron_schedule.state }}"
+    disabled: "{{ cron_schedule.disabled }}"
+    minute: "{{ cron_schedule.minute }}"
+    hour: "{{ cron_schedule.hour }}"
+    day: "{{ cron_schedule.day }}"
+    month: "{{ cron_schedule.month }}"
+    weekday: "{{ cron_schedule.weekday }}"
+  with_items:
+    - "{{ cron_schedules }}"
+  loop_control:
+    loop_var: cron_schedule
+
+- name: "Gestion des droits des fichiers crons"
+  file:
+    path: "{{ cron_schedule.cron_file}}"
+    owner: "{{ cron_schedule.user }}"
+    group: "crontab"
+    mode: "0644"
+  with_items:
+    - "{{ cron_schedules }}"
+  loop_control:
+    loop_var: cron_schedule

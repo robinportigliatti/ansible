@@ -1,0 +1,5 @@
+# ansible/roles/gpg/default/main.yml
+---
+  gpg_packages:
+    - "gnupg"
+    - "rng-tools"

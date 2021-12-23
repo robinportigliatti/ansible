@@ -1,0 +1,9 @@
+# ansible/roles/apache/tasks/scripts_manager.yml
+---
+  - name: Copy Apache scripts
+    copy:
+      src: create-vhost
+      dest: /opt
+      owner: root
+      group: root
+      mode: 0755

@@ -1,0 +1,6 @@
+VHOST pipf-hcd.clearing.highco-data.com sur DebianWebTEST
+BDD : pipf01bd
+USER-BDD : pipf01bdu
+PASS-BDD : rOa_Ru47
+-----------------
+Authentification Htacess : highco / blrcm 

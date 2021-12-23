@@ -1,0 +1,6 @@
+# ansible/roles/vmware/handlers/main.yml
+---
+  - name: "Restart server"
+    shell: sleep 2 && sudo /sbin/shutdown -r now "Ansible Rebooting The Server"
+    async: 1
+    poll: 0

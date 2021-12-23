@@ -1,0 +1,10 @@
+# {{ ansible_managed }}
+
+# Inventory for {{ ansible_current_inventory_file }}
+{% for group in ansible_current_groups | sort %}
+
+[{{ group.name }}]
+{% for hostname in group.hostnames | sort %}
+{{ hostname.ansible_line | default(hostname.name) }}
+{% endfor %}
+{% endfor %}

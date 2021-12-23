@@ -1,0 +1,4 @@
+VHOST daddy-moustache-elec.hcdata.fr sur 163-mutuSF2
+BDD : daddy_elecbd
+USER-BDD : daddy_elecbdu
+PASS-BDD : wAcYD3ti

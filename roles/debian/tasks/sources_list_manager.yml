@@ -1,0 +1,11 @@
+# ansible/roles/debian/tasks/sources_list_manager.yml
+---
+  - name: "Create files from templates"
+    template:
+      src: "{{ debian_sources_list_templates_current.src }}"
+      dest: "{{ debian_sources_list_templates_current.dest }}"
+      force: "{{ debian_sources_list_templates_current.force | default(omit) }}"
+    with_items:
+      - "{{ debian_sources_list_templates }}"
+    loop_control:
+      loop_var: "debian_sources_list_templates_current"

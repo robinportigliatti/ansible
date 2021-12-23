@@ -1,0 +1,20 @@
+---
+barman_home_directory: "/bdd_bck/barman"
+barman_user_name: "barman"
+streaming_barman_user_name: "streaming_barman"
+barman_conf_file: "/etc/barman.conf"
+barman_pgpass_file: "{{ barman_home_directory }}/.pgpass"
+barman_server_config_files_directory: "/etc/barman.d"
+barman_server_configuration: []
+barman_slot_name: "barman"
+barman_log_directory: "/bdd_bck/barman/log"
+barman_log_file: "{{ barman_log_directory }}/barman.log"
+
+barman_cron_schedule:
+  minute: "*"
+  hour: "*"
+  day: "*"
+  weekday: "*"
+  month: "*"
+  
+barman_cron_disabled: false
