@@ -1,0 +1,35 @@
+# ansible/roles/ldap2pg/tasks/main.yml
+---
+  - name: Add the PGDG repository for {{ ansible_os_family }}
+    ansible.builtin.include_tasks: '{{ ansible_os_family }}/main.yml'
+
+  - name: "Install ldap2pg packages"
+    ansible.builtin.package:
+      name: "ldap2pg"
+      state: "present"
+
+  - name: "Creating ldap2pg conf directory"
+    file:
+      state: directory
+      path: "{{ ldap2pg_conf_directory }}"
+      owner: "postgres"
+      group: "postgres"
+      mode: 600
+
+  - name: "Configure ldap2pg configuration"
+    template:
+      src: "ldap2pg.yml.j2"
+      dest: "{{ ldap2pg_conf_directory }}/.pgpass"
+      owner: "postgres"
+      group: "postgres"
+      mode: 600
+    when: ldap2pg_groups is defined
+
+  # FIXME: Create conf files
+  # /etc/ldap2pg/ldap2pg.yml
+  # /etc/ldap2pg/.env
+  # ~postgres/.ldappass
+  # ~postgres/ldaprc
+  # pg_hba.conf
+  # pg_ident.conf
+  # execute ldap2pg --real

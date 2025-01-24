@@ -1,0 +1,72 @@
+# {{ ansible_managed | comment }}
+
+version: {{ ldap2pg_version }}
+
+postgres:
+  roles_blacklist_query:
+    {% for role in ldap2pg_roles_blacklist_query %}
+    - {{ role }}
+    {% endfor %}
+
+privileges:
+  reader:
+    - __connect__
+    - __usage_on_schemas__
+    - __select_on_tables__
+    - __select_on_sequences__
+  writer:
+    - reader
+    - __delete_on_all_tables__
+    - __insert_on_all_tables__
+    - __update_on_all_tables__
+    - __usage_on_all_sequences__
+  owner:
+    - __connect__
+    - __all_on_functions__
+    - __usage_on_schemas__
+    - __create_on_schemas__
+    - __all_on_sequences__
+    - __all_on_tables__
+
+rules:
+  - roles:
+    - name: ldap_group
+      options: NOLOGIN
+    - names:
+    {% for group in ldap2pg_groups %}
+        - {{ group.role }}
+    {% endfor %}
+      options: NOLOGIN INHERIT
+      parents:
+        - ldap_group
+  - grant:
+    {% for group in ldap2pg_groups %}
+    - role: "{{ group.role }}"
+      privilege: {{ group.privilege }}
+      databases:
+      {% for database in group.databases %}
+        - "{{ database }}"
+      {% endfor %}
+      {% if  group.schemas is defined %}
+      schemas:
+      {% for schema in group.schemas %}
+        - "{{ schema }}"
+      {% endfor %}
+      {% endif %}
+    {% endfor %}
+
+    {% for group in ldap2pg_groups %}
+  - description: Setup {{ group.role }} members
+    ldapsearch:
+      {% if group.ou is defined %}
+      base: {{ group.ou }},{{ ldap2pg_dc  }}
+      {% else %}
+      base: {{ ldap2pg_default_users_ou  }},{{ ldap2pg_dc  }}
+      {% endif %}
+      filter: "(CN={{ group.role }})"
+    roles:
+      - name: "{member.{{ ldap2pg_field_member }}}"
+        parents:
+          - {{ group.role }}
+        options: {{ group.options }}
+  {% endfor %}
