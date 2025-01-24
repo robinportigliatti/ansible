@@ -36,6 +36,9 @@
     - "dba={{ postgresql_pgdata_directory }}/dba"
     - "cron={{ postgresql_pgdata_directory }}/scripts_crontab"
   postgresql_pgdata_main_directory: "{{ postgresql_pgdata_directory }}/{{ postgresql_version }}/main"
+  postgresql_wal_directory: "/pgwal"
+  postgresql_wal_main_directory: "{{ postgresql_wal_directory }}/{{ postgresql_version }}/main"
+
   postgresql_pgbackup_directory: "/pgbackup"
   postgresql_pgbackup_directories:
     - "{{ postgresql_pgbackup_directory }}/dump"

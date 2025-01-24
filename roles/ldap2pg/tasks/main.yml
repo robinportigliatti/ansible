@@ -1,6 +1,6 @@
 # ansible/roles/ldap2pg/tasks/main.yml
 ---
-  - name: Add the PGDG repository for {{ ansible_os_family }}
+  - name: Add the dalibo labs repository for {{ ansible_os_family }}
     ansible.builtin.include_tasks: '{{ ansible_os_family }}/main.yml'
 
   - name: "Install ldap2pg packages"
@@ -9,7 +9,7 @@
       state: "present"
 
   - name: "Creating ldap2pg conf directory"
-    file:
+    ansible.builtin.file:
       state: directory
       path: "{{ ldap2pg_conf_directory }}"
       owner: "postgres"
@@ -17,19 +17,55 @@
       mode: 600
 
   - name: "Configure ldap2pg configuration"
-    template:
+    ansible.builtin.template:
       src: "ldap2pg.yml.j2"
-      dest: "{{ ldap2pg_conf_directory }}/.pgpass"
+      dest: "{{ ldap2pg_conf_directory }}/ldap2pg.yml"
       owner: "postgres"
       group: "postgres"
       mode: 600
     when: ldap2pg_groups is defined
 
+  - name: "Create .env file"
+    ansible.builtin.template:
+      src: ".env.j2"
+      dest: "{{ ldap2pg_conf_directory }}/.env"
+      owner: "postgres"
+      group: "postgres"
+      mode: 600
+
+  - name: "Create ~postgres/.ldappass file"
+    ansible.builtin.template:
+      src: ".ldappass.j2"
+      dest: "~postgres/.ldappass"
+      owner: "postgres"
+      group: "postgres"
+      mode: 600
+
+  - name: "Creating /etc/ldaprc directory"
+    ansible.builtin.file:
+      state: directory
+      path: "/etc/ldaprc"
+      owner: "root"
+      group: "root"
+      mode: 755
+
+  - name: "Create /etc/ldaprc/ldaprc file"
+    ansible.builtin.template:
+      src: "etc.ldaprc.j2"
+      dest: "/etc/ldaprc/ldaprc"
+      owner: "root"
+      group: "root"
+      mode: 644
+
+  - name: "Create ~postgres/ldaprc file"
+    ansible.builtin.template:
+      src: "ldaprc.j2"
+      dest: "~postgres/ldaprc"
+      owner: "postgres"
+      group: "postgres"
+      mode: 644
+
   # FIXME: Create conf files
-  # /etc/ldap2pg/ldap2pg.yml
-  # /etc/ldap2pg/.env
-  # ~postgres/.ldappass
-  # ~postgres/ldaprc
   # pg_hba.conf
   # pg_ident.conf
   # execute ldap2pg --real

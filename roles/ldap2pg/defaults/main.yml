@@ -3,7 +3,10 @@
   ldap2pg_version: 6
   ldap2pg_dc: "DC=foo,DC=fr"
   ldap2pg_ldap_url: "ldaps://foo.fr:123"
+  ldap2pg_binddn_cn: "CN=adUser"
+  ldap2pg_binddn_password: "password"
   ldap2pg_default_users_ou: "OU=Users"
+  ldap2pg_binddn_user_ou: "{{ ldap2pg_default_users_ou }}"
   ldap2pg_field_member: "sAMAccountName"
   ldap2pg_groups:
     - role: "myCN"

@@ -36,23 +36,37 @@
       group: "{{ postgresql_sys_group }}"
       mode: "1700"
 
+  - name: "Creating WAL directory"
+    file:
+      state: directory
+      path: "{{ postgresql_wal_main_directory }}"
+      owner: "{{ postgresql_sys_user }}"
+      group: "{{ postgresql_sys_group }}"
+      mode: "1700"
+
   - name: Check if PostgreSQL database is initialized.
     stat:
       path: "{{ postgresql_pgdata_main_directory }}/PG_VERSION"
     register: pgdata_dir_version
-  - name: Check environment variables
-    command: "env"
-    environment:
-      PGDATA: "{{ postgresql_pgdata_main_directory }}"
+
   - name: "Launching initdb"
-    command: "/usr/pgsql-{{ postgresql_version }}/bin/initdb --pgdata='{{ postgresql_pgdata_main_directory }}' -A scram-sha-256 --auth-local=peer -k"
+    ansible.builtin.command: "/usr/pgsql-{{ postgresql_version }}/bin/initdb --pgdata='{{ postgresql_pgdata_main_directory }}' --waldir='{{ postgresql_wal_main_directory }}' --auth=scram-sha-256 --auth-local=peer --data-checksums"
     become_user: postgres
     when: not pgdata_dir_version.stat.exists
     vars:
       ansible_ssh_pipelining: "true"
+
+  - name: "Changing postgres-{{ postgresql_version }}.service"
+    ansible.builtin.lineinfile:
+      dest: "/usr/lib/systemd/system/postgresql-{{ postgresql_version }}.service"
+      regexp: "^#?Environment=PGDATA.+$"
+      line: "Environment=PGDATA={{ postgresql_pgdata_main_directory }}"
+      state: "present"
+
 
   - name: "restart postgresql"
     service:
       name: "postgresql-17"
       state: "restarted"
       enabled: true
+      daemon_reload: true

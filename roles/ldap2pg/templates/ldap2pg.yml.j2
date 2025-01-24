@@ -4,9 +4,9 @@ version: {{ ldap2pg_version }}
 
 postgres:
   roles_blacklist_query:
-    {% for role in ldap2pg_roles_blacklist_query %}
+{% for role in ldap2pg_roles_blacklist_query %}
     - {{ role }}
-    {% endfor %}
+{% endfor %}
 
 privileges:
   reader:
@@ -33,36 +33,35 @@ rules:
     - name: ldap_group
       options: NOLOGIN
     - names:
-    {% for group in ldap2pg_groups %}
+{% for group in ldap2pg_groups %}
         - {{ group.role }}
-    {% endfor %}
+{% endfor %}
       options: NOLOGIN INHERIT
       parents:
         - ldap_group
   - grant:
-    {% for group in ldap2pg_groups %}
+{% for group in ldap2pg_groups %}
     - role: "{{ group.role }}"
       privilege: {{ group.privilege }}
       databases:
-      {% for database in group.databases %}
+{% for database in group.databases %}
         - "{{ database }}"
-      {% endfor %}
-      {% if  group.schemas is defined %}
+{% endfor %}
+{% if  group.schemas is defined %}
       schemas:
-      {% for schema in group.schemas %}
+{% for schema in group.schemas %}
         - "{{ schema }}"
       {% endfor %}
       {% endif %}
     {% endfor %}
-
-    {% for group in ldap2pg_groups %}
+{% for group in ldap2pg_groups %}
   - description: Setup {{ group.role }} members
     ldapsearch:
-      {% if group.ou is defined %}
+{% if group.ou is defined %}
       base: {{ group.ou }},{{ ldap2pg_dc  }}
-      {% else %}
+{% else %}
       base: {{ ldap2pg_default_users_ou  }},{{ ldap2pg_dc  }}
-      {% endif %}
+{% endif %}
       filter: "(CN={{ group.role }})"
     roles:
       - name: "{member.{{ ldap2pg_field_member }}}"
