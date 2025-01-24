@@ -1,4 +1,0 @@
-VHOST 1andelingerie-passionata.devdata.fr sur 163-mutuSF2
-BDD : passionatabd
-USER-BDD : passionatabdu
-PASS-BDD : 5w8im0VJ

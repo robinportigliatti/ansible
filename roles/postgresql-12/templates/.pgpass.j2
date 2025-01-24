@@ -1,4 +1,0 @@
-{{ ansible_managed | comment }}
-{% for pass in pg_pass %}
-{{ pass.name }}:{{ pass.port_number }}:{{pass.database}}:{{pass.user_name}}:{{pass.password}}
-{% endfor %}

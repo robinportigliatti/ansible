@@ -1,7 +1,0 @@
----
-  - name: "création de l'utilisateur {{ parameter_user_name }}"
-    mysql_user:
-      name: "{{ parameter_user_name }}"
-      password: "{{ parameter_user_password }}"
-      priv: "{{ parameter_priv }}"
-      state: present

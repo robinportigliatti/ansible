@@ -1,4 +1,0 @@
-VHOST mobilehcd.devdata.fr sur 163-mutuSF2
-BDD : mobilehcdbd
-USER-BDD : mobilehcdbdu
-PASS-BDD : csFSmQga

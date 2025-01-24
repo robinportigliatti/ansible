@@ -1,4 +1,0 @@
-VHOST partir-a-cannes.devdata.fr sur 163-mutuSF2
-BDD : cannesbd
-USER-BDD : cannesbdu
-PASS-BDD : FEVdO1Js

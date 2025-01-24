@@ -1,4 +1,0 @@
-VHOST highco-data.fr sur 163-mutuSF2
-BDD : hcdatabd
-USER-BDD : hcdatabdu
-PASS-BDD : p47n6bF0

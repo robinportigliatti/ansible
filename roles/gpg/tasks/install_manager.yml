@@ -1,8 +1,0 @@
-# ansible/roles/gpg/tasks/install_manager.yml
----
-  - name: "Install gpg packages"
-    apt:
-      name: "{{ gpg_packages }}"
-
-  - name: "Run entropy"
-    shell: rngd -r /dev/urandom

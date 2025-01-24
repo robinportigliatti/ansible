@@ -1,6 +1,0 @@
-# ansible/roles/haproxy/handlers/main.yml
----
-  - name: "haproxy_restarted"
-    service:
-      name: "haproxy"
-      state: "restarted"

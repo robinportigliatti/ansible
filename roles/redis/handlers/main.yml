@@ -1,7 +1,0 @@
-# ansible/roles/redis/handlers/main.yml
----
-
-  - name: "Redis_restarted"
-    service:
-      name: redis-server
-      state: restarted

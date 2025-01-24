@@ -1,6 +1,0 @@
-VHOST challenges-brother.devdata.fr sur 163-mutuSF2
-BDD : chbrotherbd
-USER-BDD : chbrotherbdu
-PASS-BDD : B_86zFcj
------------------
-Authentification Htacess : highco / blrcm 

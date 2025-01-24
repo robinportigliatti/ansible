@@ -1,4 +1,0 @@
-VHOST jeu-agedeglace-boulanger-sodastream.joueravec.com sur 163-mutuSF2
-BDD : sodast2bd
-USER-BDD : sodast2bdu
-PASS-BDD : 7FHvDi

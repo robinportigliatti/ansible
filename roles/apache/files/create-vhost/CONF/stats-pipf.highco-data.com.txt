@@ -1,6 +1,0 @@
-VHOST stats-pipf.highco-data.com sur DebianWebTEST
-BDD : statspipf01bdbd
-USER-BDD : statspipf01bdbdu
-PASS-BDD : K1cg2Oq6
------------------
-Authentification Htacess : highco / blrcm 

@@ -1,8 +1,0 @@
-# ansible/roles/git/default/main.yml
----
-  git_packages:
-    - "git"
-  git_user_configs:
-    - user: "postgres"
-      global_user_name: "Robin PORTIGLIATTI"
-      global_email: "rpor@scan002.linkingup.org"

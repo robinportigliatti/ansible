@@ -1,4 +1,0 @@
-VHOST legaulois.joueravec.com sur 163-mutuSF2
-BDD : legauloisbd
-USER-BDD : legauloisbdu
-PASS-BDD : I6Nhoe

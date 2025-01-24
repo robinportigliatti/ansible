@@ -2,8 +2,9 @@
 ---
 - hosts: "database"
   become: yes
+  gather_facts: yes
   tasks:
     - name: "Installation de postgresql"
       include_role:
-        name: postgresql-{{ pg_version }}
+        name: postgresql
         tasks_from: install_manager.yml

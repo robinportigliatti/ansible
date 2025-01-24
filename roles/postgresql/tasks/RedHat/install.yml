@@ -1,0 +1,58 @@
+# ansible/roles/postgresql/tasks/RedHat/install.yml
+---
+  - name: Include variables.
+    ansible.builtin.include_vars: '{{ ansible_os_family }}.yml'
+
+  - name: "Adding postgres key"
+    ansible.builtin.rpm_key:
+      key: '{{ postgresql_repository_signing_key_url }}'
+      state: present
+
+  - name: Adding postgres repo
+    ansible.builtin.yum:
+      name: '{{ postgresql_repository }}'
+      update_cache: true
+
+  - name: Configure default behavior
+    ansible.builtin.copy:
+      dest: /etc/dnf/modules.d/postgresql.module
+      mode: '0644'
+      content: |-
+        [postgresql]
+        name=postgresql
+        stream=
+        profiles=
+        state=disabled
+
+  - name: Install postgresql packages
+    ansible.builtin.package:
+      name: '{{ postgresql_packages }}'
+
+  - name: "Creating PGDATA directory"
+    file:
+      state: directory
+      path: "{{ postgresql_pgdata_main_directory }}"
+      owner: "{{ postgresql_sys_user }}"
+      group: "{{ postgresql_sys_group }}"
+      mode: "1700"
+
+  - name: Check if PostgreSQL database is initialized.
+    stat:
+      path: "{{ postgresql_pgdata_main_directory }}/PG_VERSION"
+    register: pgdata_dir_version
+  - name: Check environment variables
+    command: "env"
+    environment:
+      PGDATA: "{{ postgresql_pgdata_main_directory }}"
+  - name: "Launching initdb"
+    command: "/usr/pgsql-{{ postgresql_version }}/bin/initdb --pgdata='{{ postgresql_pgdata_main_directory }}' -A scram-sha-256 --auth-local=peer -k"
+    become_user: postgres
+    when: not pgdata_dir_version.stat.exists
+    vars:
+      ansible_ssh_pipelining: "true"
+
+  - name: "restart postgresql"
+    service:
+      name: "postgresql-17"
+      state: "restarted"
+      enabled: true

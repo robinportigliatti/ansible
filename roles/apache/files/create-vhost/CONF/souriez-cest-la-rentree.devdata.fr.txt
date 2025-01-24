@@ -1,4 +1,0 @@
-VHOST souriez-cest-la-rentree.devdata.fr sur 163-mutuSF2
-BDD : souriezCLRbd
-USER-BDD : souriezCLRbdu
-PASS-BDD : HoTF9Q2q

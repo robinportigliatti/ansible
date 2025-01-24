@@ -1,4 +1,0 @@
-# ansible/roles/mysecureshell/tasks/main.yml
----
-  - import_tasks: user_directory_manager.yml
-    when: mysecureshell_user_directory is defined

@@ -1,4 +1,0 @@
-# ansible/roles/vmware/tasks/main.yml
----
-  - import_tasks: guests_manager.yml
-    when: vmware_guests is defined

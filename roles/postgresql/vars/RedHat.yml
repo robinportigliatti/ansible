@@ -1,0 +1,7 @@
+# ansible/rolespostgresql/RedHat.yml
+---
+  postgresql_repository_signing_key_url: "https://download.postgresql.org/pub/repos/yum/keys/PGDG-RPM-GPG-KEY-RHEL"
+  postgresql_repository: "https://download.postgresql.org/pub/repos/yum/reporpms/EL-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}/pgdg-redhat-repo-latest.noarch.rpm"
+  postgresql_packages:
+    - "postgresql{{ postgresql_version }}-server"
+    - "postgresql{{ postgresql_version }}-contrib"

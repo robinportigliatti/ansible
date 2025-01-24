@@ -1,6 +1,0 @@
-# ansible/roles/postgresql/tasks/prerequisites.yml
----
-  - name: "Managing postgresql prerequisites"
-    apt:
-      name: [libpq-dev, python-psycopg2]
-      state: "latest"

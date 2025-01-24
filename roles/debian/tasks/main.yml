@@ -1,6 +1,0 @@
-# ansible/roles/debian/tasks/main.yml
----
-  - import_tasks: users_manager.yml
-    when: debian_users is defined
-  - import_tasks: directory_manager.yml
-    when: debian_directories is defined

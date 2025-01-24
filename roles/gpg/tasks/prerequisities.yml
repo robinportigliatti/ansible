@@ -1,5 +1,0 @@
-# ansible/roles/gpg/tasks/prerequisities.yml
----
-  - name: "Install apt-show-versions packages"
-    apt:
-      name: "apt-show-versions"

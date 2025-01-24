@@ -1,4 +1,0 @@
-VHOST daddy-moustache-nben.hcdata.fr sur 163-mutuSF2
-BDD : daddy_nbenbd
-USER-BDD : daddy_nbenbdu
-PASS-BDD : BoXtTOy0

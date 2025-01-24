@@ -1,8 +1,0 @@
-# ansible/roles/mysecureshell/defaults/main.yml
----
-  mysecureshell_packages:
-    - "mysecureshell"
-
-  mysecureshell_ssh_directory: "/etc/ssh"
-  mysecureshell_sys_user: "root"
-  mysecureshell_sys_group: "root"
