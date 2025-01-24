@@ -1,9 +1,0 @@
-# ansible/mongodb_instal.yml
----
-- hosts: "database"
-  become: yes
-  tasks:
-    - name: "Installation de mongodb"
-      include_role:
-        name: mongodb
-        tasks_from: install_manager.yml
